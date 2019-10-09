@@ -6,3 +6,35 @@
 #100DaysOfSwiftUI - Project 1 - Days 16-18 - [[https://www.hackingwithswift.com/100/swiftui/16][www.hackingwithswift.com/100/swiftui/16]]
 
 ** Day 16
+ - Text { } view
+ - Form { } view
+ - Max 10 childs per parent (across all of SwiftUI). Use Group { } views to add more.
+ - Section { } view
+ - Navigation bar: NavigationView { }
+ - Modifiers, eg: .navigationBarTitle("SwiftUI") on NavigationView which defaults to a large title. For a small title .navigationBarTitle(Text("SwiftUI"), displayMode: .inline)
+ - "In SwiftUI the UI is a function of the state"
+ - @State property wrapper
+ - TextField { } view
+ - Binding state to UI controls (two-way binding): $name
+ - ForEach loop can create more than 10 child views per parent:
+#+BEGIN_SRC Swift
+// Because it takes a closure - you can reffer to the iteration number simply as $0
+ForEach(0 ..< 100) { number in
+  Text("Row \(number)")
+}
+#+END_SRC
+ - Picker { } view
+#+BEGIN_SRC Swift
+struct ContentView: View {
+    let students = ["Harry", "Hermione", "Ron"]
+    @State private var selectedStudent = "Harry"
+
+    var body: some View {
+        Picker("Select your student", selection: $selectedStudent) {
+            ForEach(0 ..< students.count) {
+                Text(self.students[$0])
+            }
+        }
+    }
+}
+#+END_SRC
