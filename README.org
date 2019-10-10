@@ -38,3 +38,24 @@ struct ContentView: View {
     }
 }
 #+END_SRC
+** Day 17
+ - Adding a header to a Section view:
+#+BEGIN_SRC Swift
+Section(header: Text("How much tip do you want to leave?")) {
+
+}
+#+END_SRC
+ - Use a Segmented style for the Picker view:
+#+BEGIN_SRC Swift
+Picker { }.pickerStyle(SegmentedPickerStyle())
+#+END_SRC
+ - Show a decimal keypad for entering values in a TextField:
+#+BEGIN_SRC Swift
+TextField("Amount", text: $checkAmount)
+    .keyboardType(.decimalPad)
+#+END_SRC
+ - The .navigationBarTitle("title") modifier needs to be added on the top view inside a NavigationView { } and not on the NavigationView itself.
+ - Format interpolated string using a specifier argument:
+#+BEGIN_SRC Swift
+Text("$\(totalPerPerson, specifier: "%.2f")") // two floating digits after the decimal point
+#+END_SRC
