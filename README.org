@@ -59,3 +59,17 @@ TextField("Amount", text: $checkAmount)
 #+BEGIN_SRC Swift
 Text("$\(totalPerPerson, specifier: "%.2f")") // two floating digits after the decimal point
 #+END_SRC
+** Day 18 - Challenges
+1. Add a header to the third section, saying “Amount per person”
+2. Add another section showing the total amount for the check – i.e., the original amount plus tip value, without dividing by the number of people.
+3. Change the “Number of people” picker to be a text field, making sure to use the correct keyboard type.
+** Day 24 - Challenge 2
+#+BEGIN_QUOTE
+Go back to project 1 and use a conditional modifier to change the total amount text view to red if the user selects a 0% tip.
+#+END_QUOTE
+
+#+BEGIN_SRC Swift
+Section(header: Text("Total check amount")) {
+    tipPercentage == 4 ? Text("$\(totalAmount, specifier: "%.2f")").foregroundColor(.red) : Text("$\(totalAmount, specifier: "%.2f")")
+}
+#+END_SRC
